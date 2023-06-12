@@ -4,8 +4,8 @@ import configparser as cf
 import time
 
 url:str = None             #'http://www.baidu.com'
-file:str = None             #'百度'
-tag:str = body             #'tr'
+file:str = None            #'百度'
+tag:str = "body"           #'tr'
 attrname:str = None        #'type','text','src'
 keyword = None             #'Auto,SQL,tool'
 
