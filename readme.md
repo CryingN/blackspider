@@ -12,7 +12,7 @@
                                         ||
                                        .||
 地  址：https://github.com/CryingN/blackspider
-版本号：1.0.2
+版本号：1.0.3
 邮  箱：CryingNights7v@gmail.com
 =========================================================================
 ```
@@ -34,7 +34,11 @@ pip install -i https://pypi.mirrors.ustc.edu.cn/simple/ urllib3==1.26.12
 pip install -i https://pypi.mirrors.ustc.edu.cn/simple/ bs4==0.0.1
 ```
 
-## 1.0.2版本使用说明书
+## v1.0.3版本更新内容
+
+修复了1.0.2版本使用中出现的一些问题,提高了一定的兼容性问题,使用方法参考v1.0.2
+
+## v1.0.2版本使用说明书
 
 这是一次很大胆的更新,从版本号就可以想到在大家看不见的地方我进行了多次重写,至少现在的逻辑与以前发布出来的版本有了很大不同.
 
@@ -54,50 +58,7 @@ pip install -i https://pypi.mirrors.ustc.edu.cn/simple/ bs4==0.0.1
 python main.py -f blackarch -t tr -a text -k log4j
 ```
 
-## 0.4版本使用说明书
-
-### 更新内容
-
-  修复了部分不能正常查询的bug；
-
-  更新了blackspider的管理方式；
-
-  现在blackspider正尝试向linux看齐。
-
-## 0.3.1 BUG修复
-
-  因理解偏差，经检验0.3以前无法直接在终端中使用多关键词查询，现已修复bug；
-  同时源代码中不再支持tuple格式进行多关键词查询，多关键词查询可在str格式中用","进行分割，如下例子：
-
-```python
-keyword:str = 'Auto,SQL,tool'
-```
-
-## 0.3版本使用说明书
-
-### 使用示例
-
-  $\color{#FF0000}使用须知：为维护网络环境，切勿对同一网站进行多次访问。$
-
-```bash
-usage: blackspider.py [-h] [--url URL] [--file FILE] [--file_name FILE_NAME] [--tag TAG]
-                    [--attrname ATTRNAME] [--keyword KEYWORD]
-```
-
-* python 推荐使用3.9.9版本
-
-* argparse，urllib，bs4库
-
-### 环境布置方式
-
-下载[python](https://www.python.org/downloads/),在cmd或者powershell使用pip命令布置第三方库,推荐使用国内镜像源进行下载，这里使用中科大源：
-
-```bash
-pip install -i https://pypi.mirrors.ustc.edu.cn/simple/ urllib3==1.26.12
-pip install -i https://pypi.mirrors.ustc.edu.cn/simple/ bs4==0.0.1
-```
-
-## 0.4版本使用说明书
+## v0.4版本使用说明书
 
 ### 更新内容
 
@@ -107,7 +68,7 @@ pip install -i https://pypi.mirrors.ustc.edu.cn/simple/ bs4==0.0.1
 
 现在blackspider正尝试向linux看齐。
 
-## 0.3.1 BUG修复
+## v0.3.1 BUG修复
 
   因理解偏差，经检验0.3以前无法直接在终端中使用多关键词查询，现已修复bug；
   同时源代码中不再支持tuple格式进行多关键词查询，多关键词查询可在str格式中用","进行分割，如下例子：
@@ -116,7 +77,7 @@ pip install -i https://pypi.mirrors.ustc.edu.cn/simple/ bs4==0.0.1
 keyword:str = 'Auto,SQL,tool'
 ```
 
-## 0.3版本使用说明书
+## v0.3版本使用说明书
 
 ### 使用示例
 
@@ -244,7 +205,7 @@ http://ss.bdimg.com/static/superman/img/qrcode/qrcode-hover@2x-f9b106a848.png
 [True] 已完成图片保存
 ```
 
-## 0.2版本使用说明书
+## v0.2版本使用说明书
 
 ### 使用示例
 
