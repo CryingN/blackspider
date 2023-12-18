@@ -4,10 +4,10 @@ import configparser as cf
 import time
 
 url:str = None            #'http://www.baidu.com'
-file:str = "haha"            #'百度'
-tag:str = "div"           #'tr'
+file:str = "blackarch"            #'百度'
+tag:str = "tr"           #'tr'
 attrname:str = "text"        #'type','text','src'
-keyword = None             #'Auto,SQL,tool'
+keyword = "python,xss"#None             #'Auto,SQL,tool'
 query = False              #'name','all','sync'
 
 dictionary = cf.ConfigParser()

@@ -5,7 +5,7 @@ import argparse
 import blackspider as bk
 import Manage as ma
 
-number = "v1.0.3"
+number = "v1.0.4"
 logo = """\033[31m
 =========================================================================
 '||'''|,'||`            '||     .|'''|.            ..     ||`            

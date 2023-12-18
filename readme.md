@@ -1,7 +1,65 @@
-# blacksprider
+<div align="center" style="display:grid;place-items:center;">
+<p>
+    <a href="https://gitee.com/cryingn/blackspider" target="_blank"><img width="180" src="./blackspider.png" alt="Blackspider logo"></a>
+<h1>Blackspider</h1>
+</p>
+</div>
 
-对当前通过关键字进行网页爬虫的框架实现了后端管理，以更方便地在本地系统中进行交互.
-**注意:为支持中国VY开源社区的许可证, 从1.0.3版本开始从BSD许可证更换为VY通用许可证**
+**注意:** 为支持中国VY开源社区的许可证, 1.0.3版本开始blackspider从BSD许可证更换为VY通用许可证
+
+# 环境搭建
+
+`Blackspider` 是由python3构建的网站关键词抓取工具, 可以通过获取源码后直接执行, 其中`Blackspider`使用到第三方库如下:
+
+* `urllib3`
+
+* `beautifulsoup`
+
+以下为windows与linux的环境搭建方式:
+
+## windows搭建
+
+- 请确认电脑上已经配置好[python](https://www.python.org/downloads/)环境与pip工具包
+  
+  - 在终端(例如:`cmd`, `powershell`)中输入`python --version`(或`python3 --version`)以检验python环境是否安装成功;
+  
+  - 在终端(例如:`cmd`,`powershell`)中输入`pip --version`(或`pip3 --version`)以检验可以正常使用python的工具包管理工具.
+
+- 安装所需第三方库
+  
+  - 在终端(例如:`cmd`,`powershell`)中输入`pip install urllib3 bs4`(或`pip3 install urllib3 bs4`)以安装`urllib3`库与`beautifulsoup`库
+  
+  - 在终端(例如:`cmd`,`powershell`)中输入`pip list`(或`pip3 list`)检查`urllib3`库与`beautifulsoup`库是否正常安装
+
+- 获取代码并解压
+
+- 尝试运行`blackspider.py`文件, 也可以在解压好的文件地址终端(例如:`cmd`,`powershell`)输入`python main.py -f blackarch -t tr -a text -k python,xss`(或`python3 main.py -f blackarch -t tr -a text -k python,xss`)
+
+## linux搭建
+
+不同linux发行版的包管理器会有部分区别, 以下主要以archlinux与debian两个主流发行版进行举例:
+
+### archlinux
+
+- 使用前保证已经安装以下工具(使用pacman包进行安装):
+  
+  - git
+  
+  - python
+  
+  - python-beautifulsoup4
+  
+  - python-urllib3
+  
+  若还未安装可以使用以下命令安装: `sudo pacman -S git python python-beautifulsoup4 python-urllib3`
+
+- `git clone https://gitee.com/cryingn/blackspider`
+
+- `python make.py`
+
+### debian
+
+- 希腊奶, 不玩debian喵~
 
 ```bash
 =========================================================================
@@ -14,14 +72,13 @@
                                        .||
 地  址：https://github.com/CryingN/blackspider
         https://gitee.com/cryingn/blackspider
-版本号：1.0.3
+版本号：[当前版本号]
 邮  箱：CryingNights7v@gmail.com
 =========================================================================
 ```
 
-![blackspider.png](./blackspider.png)
-
 ### VY许可证说明
+
 在不进行个人补充的情况下VY许可证又称为VY通用许可证, 公开使用时只需标注社(VYCMa.png)标或声明源码来自VYCMa, 便可以免费修改和商用素材.
 对于分发问题, 为方便更多人理解, 在VY许可证中有重新定义"版权转移"概念: 他人修改源码后可以闭源, 每个修改过的文件需放置版权说明, 如果要进行公开展示需标注作者个人的标志,若作者无特殊说明需标注社标(VYCMa.png)标或声明源码来自VYCMa.
 ![VYCMa.png](./VYCMa.png)
@@ -42,16 +99,26 @@ pip install -i https://pypi.mirrors.ustc.edu.cn/simple/ bs4==4.12.2
 ```
 
 ### 文件描述
-文件|描述
---|--
-[blackspider.py](./blackspider)|工具的核心部分, 可直接通过该文件直接进行调试运行
-[Manage.py](./Manage.py)|工具的空间管理部分, 主要用于检查文件是否完整与编辑内部文件
-[.Manage.ini](./.Manage.ini)|储存的文件数据, test储存调试用的测试数据, 易恢复, group储存数据由main.py文件直接管理. url中"[equal]"表示"="
-[main.py](./main.py)|配置好的工具入口, 一般通过该文件使用blackspider
-[\_\_pycache\_\_](./__pycache__)|用于进行python文件之间的调用
-[.git](./.git)|git管理工具
-[blackarch](./blackarch)|个人推荐默认储存的文件, 可直接快速获取需要的渗透工具
-[LINCENSE](./LINCENSE)|VY通用许可证引用书
+
+| 文件                               | 描述                                                                        |
+| -------------------------------- | ------------------------------------------------------------------------- |
+| [blackspider.py](./blackspider)  | 工具的核心部分, 可直接通过该文件直接进行调试运行                                                 |
+| [Manage.py](./Manage.py)         | 工具的空间管理部分, 主要用于检查文件是否完整与编辑内部文件                                            |
+| [.Manage.ini](./.Manage.ini)     | 储存的文件数据, test储存调试用的测试数据, 易恢复, group储存数据由main.py文件直接管理. url中"[equal]"表示"=" |
+| [main.py](./main.py)             | 配置好的工具入口, 一般通过该文件使用blackspider                                            |
+| [\_\_pycache\_\_](./__pycache__) | 用于进行python文件之间的调用                                                         |
+| [.git](./.git)                   | git管理工具                                                                   |
+| [blackarch](./blackarch)         | 个人推荐默认储存的文件, 可直接快速获取需要的渗透工具                                               |
+| [LINCENSE](./LINCENSE)           | VY通用许可证引用书                                                                |
+| [make.py](./make.py)             | 一键构建舒服的blackspider环境                                                      |
+
+## v1.0.4版本更新内容
+
+* 加入`make.py`文件, 方便一键配置更加舒适的环境, 当前版本`make.py`支持linux一键构建
+
+* 更新了一个非常帅气logo
+
+* 优化了文档部分内容
 
 ## v1.0.3版本更新内容
 
@@ -63,6 +130,7 @@ pip install -i https://pypi.mirrors.ustc.edu.cn/simple/ bs4==4.12.2
 * LICENSE更换为VY通用许可证
 
 ##### 当前存在问题
+
 * 管理和代码的简洁性不太好均衡. 太久没看, 有点忘记以前为什么要这么写代码了, 交互能用但是感觉很奇怪, 估计会在下一个版本重构索引部分代码.
 * 大小写敏感问题估计也会在下一个版本解决
 
@@ -85,6 +153,7 @@ python main.py -f blackarch -t tr -a text -k log4j
 ```
 
 返还值:
+
 ```bash
 [True] 扫描到.Manage.ini文件
 [True] 扫描到.git文件
@@ -130,6 +199,7 @@ log4j-scan
 A fully automated, accurate, and extensive scanner for finding log4j RCE CVE-44228.
  blackarch-webapp
 ```
+
 ## v0.4版本使用说明书
 
 ### 更新内容
@@ -337,4 +407,5 @@ py blackspider.py --file '百度.html' --tag 'a' --attrname 'text' --keyword '�
 关于百度
 使用百度前必读
 ```
+
 ``
