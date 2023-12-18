@@ -5,8 +5,9 @@ import argparse
 import blackspider as bk
 import Manage as ma
 
-number = "v1.0.4"
-logo = """\033[31m
+number = "v1.1.0"
+if bk.bool_color:
+    logo = """\033[31m
 =========================================================================
 '||'''|,'||`            '||     .|'''|.            ..     ||`            
  ||   || ||              ||     ||                 ''     ||             
@@ -21,6 +22,23 @@ logo = """\033[31m
 邮  箱：CryingNights7v@gmail.com
 =========================================================================\033[0m
 """.format(numbers = number)
+else:
+    logo = """
+=========================================================================
+'||'''|,'||`            '||     .|'''|.            ..     ||`            
+ ||   || ||              ||     ||                 ''     ||             
+ ||;;;;  ||  '''|. .|'', || //` `|'''|,'||''|,'||''|| .|''|| .|''|,'||''|
+ ||   || || .|''|| ||    ||\{{   ..   || ||  || ||  || ||  || ||..|| ||
+.||...|'.||.`|..||.`|..'.|| \\\\. '|...|' ||..|'.||..||.`|..||.`|... .||.
+                                        ||
+                                       .||
+地  址：https://github.com/CryingN/blackspider
+        https://gitee.com/cryingn/blackspider
+版本号：{numbers}
+邮  箱：CryingNights7v@gmail.com
+=========================================================================
+""".format(numbers = number)
+
 
 # 获取data文件
 def get_data(file,url):
@@ -39,7 +57,7 @@ def main(args):
     bk.dictionary.read('.Manage.ini',encoding="utf-8")
     if bool(args.query):
         try:
-            bk.read_file(args.query,"group")
+            bk.read_file(args.query,"group",bk.bool_color)
         except:
             print(bk.warn+"无法读取.Manage.ini文件")
         quit()

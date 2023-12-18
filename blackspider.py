@@ -2,6 +2,7 @@ import urllib.request as ur
 from bs4 import BeautifulSoup as bs
 import configparser as cf
 import time
+import platform
 
 url:str = None            #'http://www.baidu.com'
 file:str = "blackarch"            #'百度'
@@ -13,14 +14,28 @@ query = False              #'name','all','sync'
 dictionary = cf.ConfigParser()
 picture_dic = []
 choose_true = {'yes','y','Y'}
-true = "\033[32m[True]\033[0m "
-false = "\033[31m[False]\033[0m "
-warn = "\033[33m[Warn]\033[0m "
-choose_ = "\033[34m[Choose]\033[0m "
 
+# 色彩管理系统
+if platform.system().lower() == "windows":
+    try:
+        from colorama import init
+        init()
+        true = "\033[32m[True]\033[0m "
+        false = "\033[31m[False]\033[0m "
+        warn = "\033[33m[Warn]\033[0m "
+        choose_ = "\033[34m[Choose]\033[0m "
+        bool_color = True
+    except:
+        true = "[True] "
+        false = "[False] "
+        warn = "[Warn] "
+        choose_ = "[Choose] "
+        bool_color = False
+else:
+    bool_color = False
 
 # 读取当前文档数据
-def read_file(query,key):
+def read_file(query, key, bool_load_color):
     print(true+"正在查询内部信息")
     if query == "name":
         try:
@@ -35,7 +50,10 @@ def read_file(query,key):
             print(true+"查询到文件信息如下")
             data = dictionary.items(key)
             for i,j in data:
-                print("\033[37m"+i+"\033[0m    url:\033[36m"+j.replace("[equal]","=")+"\033[0m")
+                if bool_load_color:
+                    print("\033[37m"+i+"\033[0m    url:\033[36m"+j.replace("[equal]","=")+"\033[0m")
+                else:
+                    print(i+"    url:"+j.replace("[equal]","="))
         except:
             print(false+"文件信息查询错误,喵了个咪你怎么这里都能报错")
     elif query == 'sync':
@@ -91,10 +109,10 @@ def bool_keyword(keyword,text):
     if len(keyword) != 1:
         bool_key = True
         for i in keyword:
-            if i not in text:
+            if i.upper() not in text.upper():
                 bool_key = False
         return bool_key
-    elif keyword[0] in text:
+    elif keyword[0].upper() in text.upper():
         return True
     else:
         return False
@@ -145,7 +163,7 @@ if __name__ == "__main__":
     dictionary.read('.Manage.ini',encoding="utf-8")
     if bool(query):
         try:
-            read_file(query,"test")
+            read_file(query,"test",bool_color)
         except:
             print(warn+"无法读取.Manage.ini文件")
         quit()
