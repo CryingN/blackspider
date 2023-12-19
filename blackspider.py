@@ -32,6 +32,10 @@ if platform.system().lower() == "windows":
         choose_ = "[Choose] "
         bool_color = False
 else:
+    true = "\033[32m[True]\033[0m "
+    false = "\033[31m[False]\033[0m "
+    warn = "\033[33m[Warn]\033[0m "
+    choose_ = "\033[34m[Choose]\033[0m "
     bool_color = False
 
 # 读取当前文档数据

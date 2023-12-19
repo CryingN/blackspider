@@ -5,7 +5,7 @@ import argparse
 import blackspider as bk
 import Manage as ma
 
-number = "v1.1.0"
+number = "v1.1.1"
 if bk.bool_color:
     logo = """\033[31m
 =========================================================================
